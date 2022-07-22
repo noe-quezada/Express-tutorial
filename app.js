@@ -1,7 +1,13 @@
-const http = require("http");
+const express = require("express");
+const app = express();
 
-const server = http.createServer((req, res) => {
-    console.log("user hit the server");
+app.get("/", (req, res) => {
+  res.json(
+    [{ name: "john", age: 18 },
+    { company: "amazon", dedication: "being evil" }]
+  );
 });
 
-server.listen(5000)
+app.listen(5000, () => {
+  console.log("server listening port 5000");
+});
